@@ -1,0 +1,99 @@
+q1.
+#include <stdio.h>
+
+int main() 
+{
+    int n, i;
+    int f= 0, s= 1, next;
+    printf("Enter the number of Fibonacci numbers to print: ");
+    scanf("%d", &n);
+    if (n <= 0) 
+     {
+        printf("Please enter a positive integer.\n");
+        return 1;
+     }
+    printf("First %d Fibonacci number(s):\n", n);
+    for (i = 0; i < n; i++) {
+        if (i == 0) {
+            next = f;
+        } else if (i == 1) {
+            next = s;
+        } else {
+            next = f + s;
+            f = s;
+            s = next;
+        }
+        printf("%d ", next);
+    }
+
+    printf("\n");
+    return 0;
+}
+Q2.
+#include <stdio.h>
+int main() {
+    int n, i, j, flag;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    if (n < 2) {
+        printf("There are no prime numbers less than or equal to %d.\n", n);
+        return 0;
+    }
+    printf("Prime numbers less than or equal to %d are:\n", n);
+    for (i = 2; i <= n; i++) {
+        flag = 0;
+        for (j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                flag = 1; 
+                break;
+            }
+        }
+        if (flag == 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    return 0;
+}
+Q3.
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    char str[1000];
+    int i, vowels = 0, consonants = 0;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  
+    for (i = 0; str[i] != '\0'; i++) {
+        char ch = tolower(str[i]); 
+        if (ch >= 'a' && ch <= 'z') {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowels++;
+            } 
+            else {
+                consonants++;
+            }
+        }
+    }
+    printf("Vowels: %d\n", vowels);
+    printf("Consonants: %d\n", consonants);
+    return 0;
+}
+Q4.
+#include <stdio.h>
+int main() {
+    int n, i, j;
+    printf("Enter the number of rows: ");
+    scanf("%d", &n);
+    printf("Center-aligned triangle of %d rows:\n", n);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n - i; j++) {
+            printf(" ");
+        }
+        for (j = 1; j <= 2 * i - 1; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
